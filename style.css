@@ -1,57 +1,131 @@
-/* Reset some default browser styles */
-body, h1, h2, p, ul {
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #222;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: #eee;
     line-height: 1.6;
 }
 
-header {
+/* Navbar */
+nav {
+    width: 100%;
     background: #111;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+nav a {
+    color: #00ff99;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.2s;
 }
 
-h2 {
-    margin-bottom: 15px;
-    font-size: 28px;
+nav a:hover {
+    color: #00ccff;
 }
 
+nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #00ccff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Container */
 .container {
     width: 90%;
-    max-width: 800px;
-    margin: auto;
-    padding: 40px 0;
+    max-width: 1200px;
+    margin: 50px auto;
 }
 
-.section {
-    background: white;
-    padding: 20px 25px;
-    margin-bottom: 20px;
+/* Section Cards */
+.card {
+    background: #111;
+    border: 1px solid #00ff99;
     border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-a {
-    color: #0066cc;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00ff99;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #00ff99;
+    margin-bottom: 15px;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00ff99;
+    color: #0a0a0a;
+    border-radius: 5px;
     text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
-a:hover {
-    text-decoration: underline;
+.button:hover {
+    background: #00ccff;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #00ff99;
+    color: #00ccff;
+    margin-top: 50px;
+}
+
+/* Form */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #00ff99;
+    background: #111;
+    color: #eee;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #00ccff;
+    outline: none;
 }
